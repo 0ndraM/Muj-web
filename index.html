@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Základní Meta Tagy -->
+    <title>Ondřej Mühlhandel | IT Specialista & C#/.NET Vývojář | Portfolio</title>
+    <meta name="description" content="Osobní portfolio. Ondřej Mühlhandel - Student Aplikované informatiky, programátor (C#, PHP, Symfony) a síťový specialista (Cisco CCNA). Projekty: Enigma, Web4Grade.">
+    <meta name="keywords" content="Ondřej Mühlhandel, Ondra M, Portfolio, Web Developer, C#, .NET, PHP, Symfony, Cisco, Networking, Třebíč, IT Specialista, Vysočina">
+    <meta name="author" content="Ondřej Mühlhandel">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- BEZPEČNOST (Trust & Safety) - Oprava pro Lighthouse -->
+    <!-- CSP: Povoluje pouze bezpečné zdroje pro styly, skripty a fonty. Zakazuje vkládání do iframu (Clickjacking). -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self' mailto:; 
+        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; 
+        style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://fonts.googleapis.com; 
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; 
+        img-src 'self' data: https:; 
+        connect-src 'self'; 
+        frame-ancestors 'none'; 
+        object-src 'none'; 
+        base-uri 'self'; 
+        form-action 'self' mailto:;
+    ">
+    <!-- Referrer Policy: Chrání soukromí uživatelů při přechodu na jiné weby -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO: Canonical URL (Uprav na finální URL webu) -->
+    <link rel="canonical" href="https://0ndra.maweb.eu/">
+
+    <!-- SEO: Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://0ndra.maweb.eu/">
+    <meta property="og:title" content="Ondřej Mühlhandel | IT Specialista & Vývojář">
+    <meta property="og:description" content="Student Aplikované informatiky, C#/.NET vývojář a síťový specialista. Prohlédněte si mé projekty jako Enigma simulátor nebo Web4Grade.">
+    <meta property="og:locale" content="cs_CZ">
+    <!-- <meta property="og:image" content="https://0ndra.maweb.eu/assets/og-image.jpg"> Doporučuji přidat náhledový obrázek -->
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ondřej Mühlhandel | IT Specialista & Vývojář">
+    <meta name="twitter:description" content="Portfolio IT specialisty. C#, PHP, Sítě. Podívej se na mé projekty.">
+
+    <!-- Výkon: Preconnect pro rychlejší načítání externích zdrojů -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+
+    <!-- Strukturovaná data (JSON-LD Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ondřej Mühlhandel",
+      "givenName": "Ondřej",
+      "familyName": "Mühlhandel",
+      "url": "https://0ndra.maweb.eu/",
+      "jobTitle": "IT Specialista & Vývojář",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Vysoká škola polytechnická Jihlava"
+      },
+      "knowsAbout": [
+        "C#", 
+        ".NET", 
+        "PHP", 
+        "Symfony", 
+        "Cisco Networking", 
+        "Cybersecurity", 
+        "Linux Administration",
+        "SQL"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/Ondram",
+        "https://github.com/0ndraM"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Třebíč",
+        "addressRegion": "Vysočina",
+        "addressCountry": "CZ"
+      }
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome pro ikony -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Změna primary barvy na tmavší odstín pro lepší kontrast (Lighthouse Accessibility fix)
+                        // Původní #3b82f6 měla nízký kontrast s bílým textem
+                        primary: '#2563eb', // Modrá (Blue 600)
+                        dark: '#0f172a',    // Tmavě modrá/šedá
+                        secondary: '#1e293b', // Světlejší šedá
+                        accent: '#8b5cf6', // Fialová pro akcenty
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3); /* Upraveno pro novou primary barvu */
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navigace -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-md border-b border-slate-800" aria-label="Hlavní navigace">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <span class="text-2xl font-bold text-white group-hover:text-primary transition-colors">Ondra_<span class="text-primary group-hover:text-white transition-colors">M_</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">O mně</a>
+                        <a href="#skills" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Dovednosti</a>
+                        <a href="#experience" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Praxe</a>
+                        <a href="#education" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Vzdělání</a>
+                        <a href="#projects" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Projekty</a>
+                        <a href="#contact" class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Kontakt</a>
+                    </div>
+                </div>
+                <!-- Mobilní menu tlačítko -->
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" type="button" aria-label="Otevřít menu" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobilní menu -->
+        <div class="hidden md:hidden bg-secondary border-b border-slate-700" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">O mně</a>
+                <a href="#skills" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dovednosti</a>
+                <a href="#experience" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Praxe</a>
+                <a href="#education" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Vzdělání</a>
+                <a href="#projects" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projekty</a>
+                <a href="#contact" class="text-primary font-bold block px-3 py-2 rounded-md text-base">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Sekce -->
+    <section class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden" aria-label="Úvod">
+        <!-- Pozadí -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in-up">
+                <h2 class="text-primary font-semibold tracking-wide uppercase text-sm mb-4">IT Networking & Programming</h2>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Ondřej <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Mühlhandel</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-8 leading-relaxed">
+                    Student Aplikované informatiky se zájmem o kybernetickou bezpečnost, sítě a vývoj softwaru.
+                    Mým cílem je propojovat svět systémové administrace s moderním programováním.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" class="bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2" aria-label="Přejít na kontaktní formulář">
+                        <i class="fas fa-paper-plane"></i> Napiš mi
+                    </a>
+                    <a href="https://www.linkedin.com/in/Ondram" target="_blank" rel="noopener noreferrer" class="border border-slate-600 hover:border-white hover:bg-slate-800 text-white px-8 py-3 rounded-full font-semibold transition-all flex items-center justify-center gap-2" aria-label="Otevřít LinkedIn profil">
+                        <i class="fab fa-linkedin"></i> LinkedIn Profil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce O mně -->
+    <section id="about" class="py-20 bg-secondary relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="w-8 h-1 bg-primary rounded-full"></span>
+                        O mně
+                    </h2>
+                    <div class="space-y-4 text-slate-400 text-lg leading-relaxed">
+                        <p>
+                            Jsem studentem 2. ročníku <strong>Aplikované informatiky na VŠPJ</strong>. Fascinuje mě svět technologií, od psaní kódu až po správu serverů. 
+                        </p>
+                        <p>
+                            Baví mě pracovat s různými operačními systémy – od <strong>Windows</strong> přes <strong>Linux</strong> až po <strong>BSD</strong> a <strong>macOS</strong>. 
+                            Mým cílem je rozvíjet se v oblasti správy systémů a síťového zabezpečení a zároveň si neustále zlepšovat své programátorské schopnosti.
+                        </p>
+                        <p>
+                            Rád se učím nové věci, ať už formou vlastních projektů (jako je můj simulátor Enigmy), zkoumáním nových technologií nebo spoluprací s ostatními v týmu.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 lg:mt-0">
+                    <h3 class="text-xl font-bold text-white mb-6">Certifikace & Kurzy</h3>
+                    <div class="grid gap-4">
+                        <!-- Certifikát 1 -->
+                        <div class="bg-dark p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-primary transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-blue-900/30 text-blue-400 flex items-center justify-center text-xl shrink-0" aria-hidden="true">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">CCNA: Switching, Routing & Wireless</h4>
+                                <p class="text-sm text-slate-400">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                         <!-- Certifikát 2 -->
+                         <div class="bg-dark p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-primary transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-blue-900/30 text-blue-400 flex items-center justify-center text-xl shrink-0" aria-hidden="true">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">CCNA: Introduction to Networks</h4>
+                                <p class="text-sm text-slate-400">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                        <!-- Certifikát 3 -->
+                        <div class="bg-dark p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-primary transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-green-900/30 text-green-400 flex items-center justify-center text-xl shrink-0" aria-hidden="true">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Cybersecurity Essentials</h4>
+                                <p class="text-sm text-slate-400">Introduction to Cybersecurity</p>
+                            </div>
+                        </div>
+                        <!-- Certifikát 4 -->
+                        <div class="bg-dark p-4 rounded-lg border border-slate-700 flex items-center gap-4 hover:border-primary transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-yellow-900/30 text-yellow-400 flex items-center justify-center text-xl shrink-0" aria-hidden="true">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">NDG Linux Unhatched</h4>
+                                <p class="text-sm text-slate-400">Linux Basics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Dovednosti -->
+    <section id="skills" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Technologie a dovednosti</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Backend & Langs -->
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fas fa-code text-4xl text-blue-500 mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">C# & .NET</h3>
+                    <p class="text-xs text-slate-400">Desktop apps, WinForms</p>
+                </article>
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fab fa-php text-4xl text-indigo-400 mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">PHP & Symfony</h3>
+                    <p class="text-xs text-slate-400">Web Backend</p>
+                </article>
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fas fa-database text-4xl text-orange-400 mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">SQL</h3>
+                    <p class="text-xs text-slate-400">MySQL, InnoDB</p>
+                </article>
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fab fa-cuttlefish text-4xl text-blue-600 mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">C / C++</h3>
+                    <p class="text-xs text-slate-400">System programming</p>
+                </article>
+
+                <!-- Web & Frontend -->
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fab fa-html5 text-4xl text-orange-500 mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">HTML & CSS</h3>
+                    <p class="text-xs text-slate-400">Tailwind CSS, Frontend</p>
+                </article>
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fab fa-docker text-4xl text-blue-400 mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">Docker</h3>
+                    <p class="text-xs text-slate-400">Kontejnerizace</p>
+                </article>
+                
+                <!-- OS & Tools -->
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fab fa-linux text-4xl text-white mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">Linux Admin</h3>
+                    <p class="text-xs text-slate-400">Server správa</p>
+                </article>
+                <article class="skill-card bg-secondary p-6 rounded-xl border border-slate-800 text-center">
+                    <i class="fas fa-server text-4xl text-green-500 mb-4" aria-hidden="true"></i>
+                    <h3 class="text-white font-bold mb-2">Windows Server</h3>
+                    <p class="text-xs text-slate-400">AD, Infrastructure</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Zkušenosti -->
+    <section id="experience" class="py-20 bg-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Pracovní zkušenosti</h2>
+            
+            <div class="space-y-8">
+                <!-- Práce 1 -->
+                <article class="bg-dark p-8 rounded-2xl border-l-4 border-primary shadow-lg hover:shadow-blue-900/20 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Senior ICT Administrátor</h3>
+                            <p class="text-primary font-medium">I&C Energo a.s.</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 text-slate-400 text-sm bg-slate-800 px-3 py-1 rounded-full inline-block">
+                            <i class="far fa-calendar-alt mr-2" aria-hidden="true"></i>
+                            <time datetime="2024-05">Květen 2024</time> - <time datetime="2024-06">Červen 2024</time>
+                        </div>
+                    </div>
+                    <p class="text-slate-400">
+                        Správa ICT infrastruktury, řešení technických problémů a zajištění chodu podnikových systémů v Třebíči.
+                    </p>
+                </article>
+
+                <!-- Práce 2 -->
+                <article class="bg-dark p-8 rounded-2xl border-l-4 border-slate-600 shadow-lg hover:shadow-slate-900/20 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">IT Specialista (Stáž)</h3>
+                            <p class="text-primary font-medium">PC HELP, a.s.</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 text-slate-400 text-sm bg-slate-800 px-3 py-1 rounded-full inline-block">
+                            <i class="far fa-calendar-alt mr-2" aria-hidden="true"></i>
+                            <time datetime="2022-05">Květen 2022</time> - <time datetime="2022-06">Červen 2022</time>
+                        </div>
+                    </div>
+                    <p class="text-slate-400">
+                        Technická podpora, správa koncových stanic a asistence při správě serverů. Získání praktických zkušeností v komerčním IT prostředí.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Vzdělání -->
+    <section id="education" class="py-20 bg-dark border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Vzdělání</h2>
+            
+            <div class="relative border-l-2 border-slate-700 ml-3 md:ml-6 pl-8 space-y-12">
+                
+                <!-- VŠPJ -->
+                <article class="relative">
+                    <div class="absolute -left-[41px] w-6 h-6 bg-primary rounded-full border-4 border-dark"></div>
+                    <h3 class="text-xl font-bold text-white">Vysoká škola polytechnická Jihlava</h3>
+                    <p class="text-primary mb-1">Bc., Aplikovaná informatika</p>
+                    <span class="text-sm text-slate-500 block mb-2"><time datetime="2024-09">Září 2024</time> - <time datetime="2027-06">Červen 2027</time> (Předpokládané)</span>
+                    <p class="text-slate-400 text-sm">Zaměření na softwarové inženýrství, sítě a databáze.</p>
+                </article>
+
+                <!-- VUT -->
+                <article class="relative">
+                    <div class="absolute -left-[41px] w-6 h-6 bg-slate-600 rounded-full border-4 border-dark"></div>
+                    <h3 class="text-xl font-bold text-white">Vysoké učení technické v Brně</h3>
+                    <p class="text-slate-300 mb-1">Informační technologie</p>
+                    <span class="text-sm text-slate-500 block mb-2"><time datetime="2023-09">Září 2023</time> - <time datetime="2024-03">Březen 2024</time></span>
+                </article>
+
+                <!-- SPŠ Třebíč -->
+                <article class="relative">
+                    <div class="absolute -left-[41px] w-6 h-6 bg-slate-600 rounded-full border-4 border-dark"></div>
+                    <h3 class="text-xl font-bold text-white">Střední průmyslová škola Třebíč</h3>
+                    <p class="text-slate-300 mb-1">Informační technologie</p>
+                    <span class="text-sm text-slate-500 block mb-2"><time datetime="2019">2019</time> - <time datetime="2023">2023</time></span>
+                    <p class="text-slate-400 text-sm">
+                        Zakončeno maturitou. Závěrečný projekt: Simulátor šifrovacího stroje Enigma.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Projekty -->
+    <section id="projects" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Moje Projekty</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Projekt 1 - Web4Grade -->
+                <article class="bg-dark rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 shadow-xl border border-slate-700 flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-indigo-900 to-slate-900 flex items-center justify-center text-slate-500 relative group shrink-0">
+                        <i class="fas fa-graduation-cap text-5xl group-hover:text-indigo-400 transition-colors" aria-hidden="true"></i>
+                         <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white font-bold border border-white px-4 py-2 rounded">Školní Systém</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Web4Grade</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">
+                            Webová aplikace pro správu objednávek školních projektů. Obsahuje chat, admin panel, sledování stavu a platby přes QR.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded border border-indigo-500/20">PHP 8.2</span>
+                            <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs rounded border border-blue-500/20">Docker</span>
+                            <span class="px-2 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded border border-cyan-500/20">Tailwind</span>
+                        </div>
+                         <div class="mt-auto pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <a href="https://0ndra.maweb.eu/Web4Grade/index.php" target="_blank" rel="noopener noreferrer" class="text-xs text-primary hover:underline" aria-label="Web4Grade Live Demo"><i class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                             <a href="https://github.com/0ndraM" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors" aria-label="Web4Grade Zdrojový kód"><i class="fab fa-github text-lg"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Projekt 2 - Filmová Databáze -->
+                <article class="bg-dark rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 shadow-xl border border-slate-700 flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-red-900/40 to-slate-900 flex items-center justify-center text-slate-500 relative group shrink-0">
+                        <i class="fas fa-film text-5xl group-hover:text-red-400 transition-colors" aria-hidden="true"></i>
+                         <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white font-bold border border-white px-4 py-2 rounded">Web + Desktop</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Správa filmové databáze</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">
+                            Komplexní systém pro správu filmů s rolemi (User, Admin, Owner). Zahrnuje webové rozhraní i desktopového <strong>C# klienta</strong>.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-xs rounded border border-purple-500/20">C# .NET</span>
+                            <span class="px-2 py-1 bg-orange-500/10 text-orange-400 text-xs rounded border border-orange-500/20">PHP API</span>
+                            <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded border border-yellow-500/20">MySQL</span>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <a href="https://0ndra.maweb.eu/FilmDB/index.php" target="_blank" rel="noopener noreferrer" class="text-xs text-primary hover:underline" aria-label="Filmová databáze Live Demo"><i class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                             <a href="https://github.com/0ndraM" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors" aria-label="Filmová databáze Zdrojový kód"><i class="fab fa-github text-lg"></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Projekt 3 - Enigma -->
+                <article class="bg-dark rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 shadow-xl border border-slate-700 flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-emerald-900/40 to-slate-900 flex items-center justify-center text-slate-500 relative group shrink-0">
+                        <i class="fas fa-key text-5xl group-hover:text-emerald-400 transition-colors" aria-hidden="true"></i>
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white font-bold border border-white px-4 py-2 rounded">Šifrování</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Simulátor Enigma</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">
+                            Věrná softwarová simulace historického šifrovacího stroje Enigma. Demonstruje vnitřní fungování rotorů a zapojení v moderním jazyce.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">C#</span>
+                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded border border-emerald-500/20">.NET Core</span>
+                            <span class="px-2 py-1 bg-slate-500/10 text-slate-400 text-xs rounded border border-slate-500/20">WinForms</span>
+                        </div>
+                         <div class="mt-auto pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <span class="text-xs text-slate-500"><i class="fas fa-history mr-1" aria-hidden="true"></i> Maturitní projekt</span>
+                             <a href="https://github.com/0ndraM" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors" aria-label="Enigma Zdrojový kód"><i class="fab fa-github text-lg"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Kontakt -->
+    <footer id="contact" class="bg-dark border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Spojme se</h2>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+                Hledáš někoho do týmu nebo máš zajímavý projekt?
+            </p>
+            
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="https://www.linkedin.com/in/0ndram/" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#0077b5] hover:-translate-y-1 transition-all shadow-lg border border-slate-700" aria-label="LinkedIn Profil">
+                    <i class="fab fa-linkedin-in text-2xl" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/0ndra_m_/" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 hover:-translate-y-1 transition-all shadow-lg border border-slate-700" aria-label="Instagram Profil">
+                    <i class="fab fa-instagram text-2xl" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:muhlhondra@gmail.com" class="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-red-500 hover:-translate-y-1 transition-all shadow-lg border border-slate-700" aria-label="Poslat Email">
+                    <i class="fas fa-envelope text-2xl" aria-hidden="true"></i>
+                </a>
+        
+            </div>
+            
+            <div class="text-slate-600 text-sm border-t border-slate-800 pt-8">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Ondřej Mühlhandel. Vytvořeno s pomocí AI.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
