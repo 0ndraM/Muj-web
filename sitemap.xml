@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Hlavní stránka (portfolio) -->
   <url>
     <loc>https://0ndra.maweb.eu/</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- FilmDB - Filmová databáze -->
+  <url>
+    <loc>https://0ndra.maweb.eu/FilmDB/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Web4Grade - Školní systém -->
+  <url>
+    <loc>https://0ndra.maweb.eu/Web4Grade/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Barber - Barber web -->
+  <url>
+    <loc>https://0ndra.maweb.eu/barber/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- KnihyDB - Databáze knih -->
+  <url>
+    <loc>https://0ndra.maweb.eu/knihydb/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Mavo - HTML stránky -->
+  <url>
+    <loc>https://0ndra.maweb.eu/mavo/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- SPST-IoT -->
+  <url>
+    <loc>https://0ndra.maweb.eu/spst-iot/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- PHP Guest Book -->
+  <url>
+    <loc>https://0ndra.maweb.eu/php_guest%20book/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Eshop -->
+  <url>
+    <loc>https://0ndra.maweb.eu/eshop/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
