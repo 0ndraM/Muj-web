@@ -10,12 +10,13 @@
     <meta name="keywords" content="Ondřej Műhlhandel, Ondra M, Portfolio, Web Developer, C#, .NET, PHP, Symfony, Cisco, Networking, Třebíč, IT Specialista, Vysočina, Roosteo">
     <meta name="author" content="Ondřej Műhlhandel">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0d0d0c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
     <meta name="color-scheme" content="light dark">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
     <!-- BEZPEČNOST (Trust & Safety) -->
@@ -42,12 +43,17 @@
     <meta property="og:title" content="Ondřej Műhlhandel | CTO & Vývojář">
     <meta property="og:description" content="Student 3. ročníku Aplikované informatiky, C#/.NET vývojář a CTO v Roosteo. Prohlédněte si mé projekty jako P2J Motocross nebo PWA rozvrhy s AI.">
     <meta property="og:image" content="https://0ndra.maweb.eu/assets/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ondřej Műhlhandel – Tvořím funkční weby a pevné systémy.">
     <meta property="og:locale" content="cs_CZ">
 
     <!-- SEO: Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ondřej Műhlhandel | IT Specialista & Vývojář">
     <meta name="twitter:description" content="Portfolio IT specialisty a vývojáře. C#, PHP, Sítě. Podívej se na mé projekty.">
+    <meta name="twitter:image" content="https://0ndra.maweb.eu/assets/og-image.jpg">
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -78,8 +84,10 @@
     <!-- Téma: nastavit před vykreslením (bez probliknutí) -->
     <script>
         (function () {
+            // Výchozí je nastavení zařízení; ruční volba platí jen pro tuto návštěvu
             try {
-                var t = localStorage.getItem('theme');
+                localStorage.removeItem('theme');
+                var t = sessionStorage.getItem('theme');
                 if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
             } catch (e) {}
             document.documentElement.classList.add('js');
@@ -88,28 +96,27 @@
 
     <!-- Ikony & Fonty -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         /* ============ Tokens ============ */
         :root {
-            --bg: #f3f1ec;
-            --bg-raised: #fbfaf7;
-            --ink: #141413;
-            --ink-2: #3d3c39;
-            --muted: #75736d;
-            --rule: #dcd8ce;
-            --rule-strong: #c4bfb2;
-            --accent: #e5480f;
+            --bg: #f5f6f8;
+            --bg-raised: #ffffff;
+            --ink: #0f1115;
+            --ink-2: #383d49;
+            --muted: #6b7180;
+            --rule: #dfe2e8;
+            --rule-strong: #c3c8d2;
+            --accent: #2b5cff;
             --accent-ink: #ffffff;
-            --accent-soft: rgba(229, 72, 15, 0.1);
-            --grid: rgba(20, 20, 19, 0.05);
+            --accent-soft: rgba(43, 92, 255, 0.1);
+            --grid: rgba(15, 17, 21, 0.05);
             --ok: #2f8f4e;
             --warn: #b87a00;
 
             --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
             --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-            --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
             --wrap: 1240px;
             --gutter: clamp(16px, 4vw, 40px);
@@ -119,33 +126,33 @@
 
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
-                --bg: #0d0d0c;
-                --bg-raised: #151514;
-                --ink: #eeece6;
-                --ink-2: #c9c6bd;
-                --muted: #8c897f;
-                --rule: #262522;
-                --rule-strong: #3a3935;
-                --accent: #ff6a35;
-                --accent-ink: #0d0d0c;
-                --accent-soft: rgba(255, 106, 53, 0.12);
-                --grid: rgba(238, 236, 230, 0.04);
+                --bg: #0b0d12;
+                --bg-raised: #12151c;
+                --ink: #e9ecf2;
+                --ink-2: #c3c8d4;
+                --muted: #8a90a0;
+                --rule: #22262f;
+                --rule-strong: #353a46;
+                --accent: #6e8bff;
+                --accent-ink: #0b0d12;
+                --accent-soft: rgba(110, 139, 255, 0.14);
+                --grid: rgba(233, 236, 242, 0.04);
                 --ok: #5cc47f;
                 --warn: #e6b23c;
             }
         }
         :root[data-theme="dark"] {
-            --bg: #0d0d0c;
-            --bg-raised: #151514;
-            --ink: #eeece6;
-            --ink-2: #c9c6bd;
-            --muted: #8c897f;
-            --rule: #262522;
-            --rule-strong: #3a3935;
-            --accent: #ff6a35;
-            --accent-ink: #0d0d0c;
-            --accent-soft: rgba(255, 106, 53, 0.12);
-            --grid: rgba(238, 236, 230, 0.04);
+            --bg: #0b0d12;
+            --bg-raised: #12151c;
+            --ink: #e9ecf2;
+            --ink-2: #c3c8d4;
+            --muted: #8a90a0;
+            --rule: #22262f;
+            --rule-strong: #353a46;
+            --accent: #6e8bff;
+            --accent-ink: #0b0d12;
+            --accent-soft: rgba(110, 139, 255, 0.14);
+            --grid: rgba(233, 236, 242, 0.04);
             --ok: #5cc47f;
             --warn: #e6b23c;
         }
@@ -171,7 +178,7 @@
         p { margin: 0; }
         ul { list-style: none; margin: 0; padding: 0; }
         strong { color: var(--ink); font-weight: 500; }
-        em.serif, .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+        .alt { font-family: var(--font-mono); font-style: normal; font-weight: 400; font-size: 0.9em; letter-spacing: -0.07em; }
         .mono { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0; }
         :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
@@ -193,11 +200,11 @@
         .brand-mark {
             width: 32px; height: 32px; border-radius: 8px;
             display: grid; place-items: center;
-            background: var(--ink); color: var(--bg);
+            background: #2b5cff; color: #ffffff; letter-spacing: -0.02em;
             font-family: var(--font-mono); font-size: 12px; font-weight: 500;
-            transition: background-color .2s ease;
+            transition: background-color .2s ease, color .2s ease;
         }
-        .brand:hover .brand-mark { background: var(--accent); color: var(--accent-ink); }
+        .brand:hover .brand-mark { background: var(--ink); color: var(--bg); }
         .brand-name .short { display: none; }
 
         .nav { display: flex; align-items: center; gap: 4px; }
@@ -292,7 +299,7 @@
             line-height: 0.96; letter-spacing: -0.045em; font-weight: 500;
             max-width: 14ch;
         }
-        .hero h1 .serif { font-size: 1.04em; letter-spacing: -0.02em; color: var(--accent); }
+        .hero h1 .alt { color: var(--accent); }
 
         .hero-grid {
             display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
@@ -342,7 +349,7 @@
         .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); display: flex; gap: 10px; }
         .eyebrow b { color: var(--accent); font-weight: 500; }
         .section-head h2 { font-size: clamp(2.125rem, 5vw, 4rem); letter-spacing: -0.035em; line-height: 1; max-width: 18ch; }
-        .section-head h2 .serif { color: var(--muted); }
+        .section-head h2 .alt { color: var(--muted); }
 
         /* About */
         .about-grid { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
@@ -436,7 +443,7 @@
         /* Contact */
         .contact { padding: clamp(96px, 13vw, 180px) 0 40px; border-top: 1px solid var(--rule); position: relative; overflow: hidden; }
         .contact h2 { font-size: clamp(3.25rem, 12vw, 10rem); letter-spacing: -0.055em; line-height: 0.9; font-weight: 500; }
-        .contact h2 .serif { color: var(--accent); letter-spacing: -0.03em; }
+        .contact h2 .alt { color: var(--accent); letter-spacing: -0.14em; }
         .contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; margin-top: 56px; align-items: end; }
         .contact-grid .lead { color: var(--ink-2); }
         .mail {
@@ -517,7 +524,7 @@
         <div class="wrap header-inner">
             <a href="#top" class="brand" aria-label="Ondřej Műhlhandel – zpět nahoru">
                 <span class="brand-mark" aria-hidden="true">OM</span>
-                <span class="brand-name"><span class="full">Ondřej Műhlhandel</span><span class="short">0ndra_M</span></span>
+                <span class="brand-name"><span class="full">Ondřej Műhlhandel</span><span class="short">0ndra_m_</span></span>
             </a>
             <nav class="nav" aria-label="Hlavní navigace">
                 <a href="#about" class="nav-link"><span>01</span>O mně</a>
@@ -546,7 +553,7 @@
             <div class="wrap">
                 <div class="status reveal"><span class="pulse" aria-hidden="true"></span> Otevřen novým výzvám</div>
 
-                <h1 class="reveal d1">Tvořím funkční weby <span class="serif">a pevné systémy.</span></h1>
+                <h1 class="reveal d1">Tvořím funkční weby <span class="alt">a pevné systémy.</span></h1>
 
                 <div class="hero-grid">
                     <div class="reveal d2">
@@ -586,7 +593,7 @@
             <div class="wrap">
                 <div class="section-head reveal">
                     <div class="eyebrow"><b>01</b> O mně</div>
-                    <h2>Technologie jako nástroj, <span class="serif">ne jen cíl.</span></h2>
+                    <h2>Technologie jako nástroj, <span class="alt">ne jen cíl.</span></h2>
                 </div>
 
                 <div class="about-grid">
@@ -656,7 +663,7 @@
             <div class="wrap">
                 <div class="section-head reveal">
                     <div class="eyebrow"><b>02</b> Praxe & vzdělání</div>
-                    <h2>Kde jsem byl <span class="serif">a kde jsem teď.</span></h2>
+                    <h2>Kde jsem byl <span class="alt">a kde jsem teď.</span></h2>
                 </div>
 
                 <div class="timeline">
@@ -724,7 +731,7 @@
             <div class="wrap">
                 <div class="section-head reveal">
                     <div class="eyebrow"><b>03</b> Portfolio</div>
-                    <h2>Vybrané projekty <span class="serif">(08)</span></h2>
+                    <h2>Vybrané projekty <span class="alt">(08)</span></h2>
                 </div>
 
                 <div class="projects">
@@ -874,7 +881,7 @@
     <footer id="contact" class="contact">
         <div class="wrap">
             <div class="eyebrow reveal" style="margin-bottom:28px"><b>04</b> Kontakt</div>
-            <h2 class="reveal d1">Spojme <span class="serif">se.</span></h2>
+            <h2 class="reveal d1">Spojme <span class="alt">se.</span></h2>
 
             <div class="contact-grid">
                 <div class="reveal d2">
@@ -912,11 +919,21 @@
             function currentTheme() {
                 return root.getAttribute('data-theme') || (darkQuery.matches ? 'dark' : 'light');
             }
+            function systemTheme() { return darkQuery.matches ? 'dark' : 'light'; }
+            function clearOverride() {
+                root.removeAttribute('data-theme');
+                try { sessionStorage.removeItem('theme'); } catch (e) {}
+            }
             toggle.addEventListener('click', function () {
                 var next = currentTheme() === 'dark' ? 'light' : 'dark';
+                if (next === systemTheme()) { clearOverride(); return; }
                 root.setAttribute('data-theme', next);
-                try { localStorage.setItem('theme', next); } catch (e) {}
+                try { sessionStorage.setItem('theme', next); } catch (e) {}
             });
+            // Když se změní nastavení zařízení, web ho hned následuje
+            var onSystemChange = function () { clearOverride(); };
+            if (darkQuery.addEventListener) darkQuery.addEventListener('change', onSystemChange);
+            else if (darkQuery.addListener) darkQuery.addListener(onSystemChange);
 
             // Mobilní menu
             var menuBtn = document.getElementById('menu-toggle');
