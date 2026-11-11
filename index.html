@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="cs" class="scroll-smooth">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO: Základní Meta Tagy -->
     <title>Ondřej Műhlhandel | IT Specialista & C#/.NET Vývojář | Portfolio</title>
-    <meta name="description" content="Osobní portfolio. Ondřej Műhlhandel - Student Aplikované informatiky, programátor (C#, PHP, Symfony) a síťový specialista (Cisco CCNA). Projekty: PWA Bakalářka, P2J, Enigma, Web4Grade.">
+    <meta name="description" content="Osobní portfolio. Ondřej Műhlhandel - Student Aplikované informatiky, programátor (C#, PHP, Symfony) a síťový specialista (Cisco Networking Academy). Projekty: PWA Bakalářka, P2J, Enigma, Web4Grade.">
     <meta name="keywords" content="Ondřej Műhlhandel, Ondra M, Portfolio, Web Developer, C#, .NET, PHP, Symfony, Cisco, Networking, Třebíč, IT Specialista, Vysočina, Roosteo">
     <meta name="author" content="Ondřej Műhlhandel">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0d0c" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    
+
     <!-- BEZPEČNOST (Trust & Safety) -->
     <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self' mailto:; 
-        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; 
-        style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://fonts.googleapis.com; 
-        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; 
-        img-src 'self' data: https:; 
-        connect-src 'self'; 
-        frame-ancestors 'none'; 
-        object-src 'none'; 
-        base-uri 'self'; 
+        default-src 'self' mailto:;
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        frame-ancestors 'none';
+        object-src 'none';
+        base-uri 'self';
         form-action 'self' mailto:;
     ">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    
+
     <!-- SEO: Canonical URL -->
     <link rel="canonical" href="https://0ndra.maweb.eu/">
 
@@ -39,6 +41,7 @@
     <meta property="og:url" content="https://0ndra.maweb.eu/">
     <meta property="og:title" content="Ondřej Műhlhandel | CTO & Vývojář">
     <meta property="og:description" content="Student 3. ročníku Aplikované informatiky, C#/.NET vývojář a CTO v Roosteo. Prohlédněte si mé projekty jako P2J Motocross nebo PWA rozvrhy s AI.">
+    <meta property="og:image" content="https://0ndra.maweb.eu/assets/og-image.jpg">
     <meta property="og:locale" content="cs_CZ">
 
     <!-- SEO: Twitter Card -->
@@ -50,7 +53,6 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
     <!-- Strukturovaná data -->
     <script type="application/ld+json">
@@ -67,638 +69,925 @@
       },
       "knowsAbout": ["C#", ".NET", "PHP", "Symfony", "Cisco Networking", "Linux", "SQL", "PWA"],
       "sameAs": [
-        "https://www.linkedin.com/in/Ondram",
+        "https://www.linkedin.com/in/0ndram",
         "https://github.com/0ndraM"
       ]
     }
     </script>
-    
-    <!-- Tailwind & Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind Config -->
+    <!-- Téma: nastavit před vykreslením (bez probliknutí) -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-                    },
-                    colors: {
-                        primary: '#6366f1', // Indigo 500
-                        primary_dark: '#4f46e5', // Indigo 600
-                        secondary: '#0f172a', // Slate 900
-                        surface: '#1e293b', // Slate 800
-                        surface_light: '#334155', // Slate 700
-                        accent: '#8b5cf6', // Violet 500
-                    }
-                }
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+            document.documentElement.classList.add('js');
+        })();
+    </script>
+
+    <!-- Ikony & Fonty -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============ Tokens ============ */
+        :root {
+            --bg: #f3f1ec;
+            --bg-raised: #fbfaf7;
+            --ink: #141413;
+            --ink-2: #3d3c39;
+            --muted: #75736d;
+            --rule: #dcd8ce;
+            --rule-strong: #c4bfb2;
+            --accent: #e5480f;
+            --accent-ink: #ffffff;
+            --accent-soft: rgba(229, 72, 15, 0.1);
+            --grid: rgba(20, 20, 19, 0.05);
+            --ok: #2f8f4e;
+            --warn: #b87a00;
+
+            --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+            --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+            --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+            --wrap: 1240px;
+            --gutter: clamp(16px, 4vw, 40px);
+            --radius: 14px;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0d0d0c;
+                --bg-raised: #151514;
+                --ink: #eeece6;
+                --ink-2: #c9c6bd;
+                --muted: #8c897f;
+                --rule: #262522;
+                --rule-strong: #3a3935;
+                --accent: #ff6a35;
+                --accent-ink: #0d0d0c;
+                --accent-soft: rgba(255, 106, 53, 0.12);
+                --grid: rgba(238, 236, 230, 0.04);
+                --ok: #5cc47f;
+                --warn: #e6b23c;
             }
         }
-    </script>
-    
-    <style>
+        :root[data-theme="dark"] {
+            --bg: #0d0d0c;
+            --bg-raised: #151514;
+            --ink: #eeece6;
+            --ink-2: #c9c6bd;
+            --muted: #8c897f;
+            --rule: #262522;
+            --rule-strong: #3a3935;
+            --accent: #ff6a35;
+            --accent-ink: #0d0d0c;
+            --accent-soft: rgba(255, 106, 53, 0.12);
+            --grid: rgba(238, 236, 230, 0.04);
+            --ok: #5cc47f;
+            --warn: #e6b23c;
+        }
+
+        /* ============ Base ============ */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
         body {
-            background-color: #0b1120;
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink-2);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color .3s ease, color .3s ease;
+            overflow-x: hidden;
         }
-        
-        .glass-nav {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        ::selection { background: var(--accent); color: var(--accent-ink); }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3, h4 { color: var(--ink); margin: 0; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+        p { margin: 0; }
+        ul { list-style: none; margin: 0; padding: 0; }
+        strong { color: var(--ink); font-weight: 500; }
+        em.serif, .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+        .mono { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+        /* ============ Header ============ */
+        .site-header {
+            position: fixed; inset: 0 0 auto 0; z-index: 50;
+            background: color-mix(in srgb, var(--bg) 78%, transparent);
+            backdrop-filter: saturate(160%) blur(14px);
+            -webkit-backdrop-filter: saturate(160%) blur(14px);
+            border-bottom: 1px solid transparent;
+            transition: border-color .3s ease, background-color .3s ease;
+        }
+        .site-header.scrolled { border-bottom-color: var(--rule); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+        .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-weight: 500; letter-spacing: -0.01em; }
+        .brand-mark {
+            width: 32px; height: 32px; border-radius: 8px;
+            display: grid; place-items: center;
+            background: var(--ink); color: var(--bg);
+            font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+            transition: background-color .2s ease;
+        }
+        .brand:hover .brand-mark { background: var(--accent); color: var(--accent-ink); }
+        .brand-name .short { display: none; }
+
+        .nav { display: flex; align-items: center; gap: 4px; }
+        .nav a.nav-link {
+            font-size: 14px; color: var(--muted); padding: 8px 12px; border-radius: 8px;
+            transition: color .2s ease, background-color .2s ease;
+        }
+        .nav a.nav-link span { font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-right: 6px; }
+        .nav a.nav-link:hover { color: var(--ink); background: var(--grid); }
+        .nav a.nav-link.active { color: var(--ink); }
+
+        .icon-btn {
+            width: 38px; height: 38px; display: inline-grid; place-items: center;
+            border: 1px solid var(--rule); border-radius: 10px; background: transparent;
+            color: var(--ink); cursor: pointer; transition: border-color .2s ease, background-color .2s ease;
+        }
+        .icon-btn:hover { border-color: var(--rule-strong); background: var(--grid); }
+        .icon-btn .fa-sun { display: none; }
+        :root[data-theme="dark"] .icon-btn .fa-sun { display: inline; }
+        :root[data-theme="dark"] .icon-btn .fa-moon { display: none; }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .icon-btn .fa-sun { display: inline; }
+            :root:not([data-theme="light"]) .icon-btn .fa-moon { display: none; }
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            height: 48px; padding: 0 22px; border-radius: 999px;
+            font-size: 15px; font-weight: 500; border: 1px solid transparent;
+            transition: transform .2s var(--ease), background-color .2s ease, border-color .2s ease, color .2s ease;
+            white-space: nowrap;
         }
-        
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
+        .btn-sm { height: 38px; padding: 0 16px; font-size: 14px; }
+        .btn-primary { background: var(--ink); color: var(--bg); }
+        .btn-primary:hover { background: var(--accent); color: var(--accent-ink); }
+        .btn-ghost { border-color: var(--rule-strong); color: var(--ink); }
+        .btn-ghost:hover { border-color: var(--ink); }
+        .btn .arrow { transition: transform .25s var(--ease); }
+        .btn:hover .arrow { transform: translateX(3px); }
+
+        .menu-toggle { display: none; }
+        .mobile-menu { display: none; }
+
+        @media (max-width: 860px) {
+            .nav .nav-link, .nav .btn { display: none; }
+            .menu-toggle { display: inline-grid; }
+            .mobile-menu {
+                display: block; position: absolute; top: 68px; left: 0; right: 0;
+                background: var(--bg); border-bottom: 1px solid var(--rule);
+                padding: 8px var(--gutter) 20px;
+                transform: translateY(-8px); opacity: 0; pointer-events: none; visibility: hidden;
+                transition: opacity .2s ease, transform .25s var(--ease), visibility .2s;
+            }
+            .mobile-menu.open { transform: none; opacity: 1; pointer-events: auto; visibility: visible; }
+            .mobile-menu a {
+                display: flex; justify-content: space-between; align-items: baseline;
+                padding: 14px 0; border-bottom: 1px solid var(--rule);
+                font-size: 22px; color: var(--ink); letter-spacing: -0.02em;
+            }
+            .mobile-menu a span { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+        }
+        @media (max-width: 480px) {
+            .brand-name .full { display: none; }
+            .brand-name .short { display: inline; }
         }
 
-        .project-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* ============ Hero ============ */
+        .hero { position: relative; padding: 148px 0 72px; overflow: hidden; }
+        .hero::before {
+            content: ""; position: absolute; inset: 0; z-index: -1;
+            background-image:
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 56px 56px;
+            -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 30%, #000 30%, transparent 75%);
+                    mask-image: radial-gradient(ellipse 80% 70% at 30% 30%, #000 30%, transparent 75%);
         }
-        
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.4);
+        .status {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 6px 12px 6px 10px; border: 1px solid var(--rule); border-radius: 999px;
+            background: var(--bg-raised); font-size: 13px; color: var(--ink-2); margin-bottom: 36px;
         }
+        .pulse { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+        .pulse::after {
+            content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ok);
+            animation: ping 2s cubic-bezier(0, 0, .2, 1) infinite;
+        }
+        @keyframes ping { 75%, 100% { transform: scale(2.6); opacity: 0; } }
 
-        /* Typewriter Cursor */
-        .typewriter-cursor::after {
-            content: '|';
-            animation: blink 1s step-start infinite;
-            color: #818cf8;
-            margin-left: 2px;
+        .hero h1 {
+            font-size: clamp(2.75rem, 8.2vw, 7.25rem);
+            line-height: 0.96; letter-spacing: -0.045em; font-weight: 500;
+            max-width: 14ch;
         }
+        .hero h1 .serif { font-size: 1.04em; letter-spacing: -0.02em; color: var(--accent); }
+
+        .hero-grid {
+            display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+            gap: 48px 72px; margin-top: 48px; align-items: end;
+        }
+        .typeline { font-family: var(--font-mono); font-size: 15px; color: var(--muted); margin-bottom: 18px; min-height: 1.6em; }
+        .typeline .prompt { color: var(--accent); margin-right: 8px; }
+        #typewriter { color: var(--ink); }
+        .caret { display: inline-block; width: 0.55em; height: 1.1em; background: var(--accent); vertical-align: -0.18em; margin-left: 2px; animation: blink 1.05s steps(1) infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        .gradient-text {
-            background: linear-gradient(to right, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .lead { font-size: clamp(1.0625rem, 1.4vw, 1.25rem); line-height: 1.55; color: var(--ink-2); max-width: 46ch; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+        .spec {
+            border-top: 1px solid var(--ink);
+            display: grid; grid-template-columns: 1fr 1fr;
         }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0b1120; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        .spec div { padding: 14px 0 14px; border-bottom: 1px solid var(--rule); }
+        .spec div:nth-child(odd) { padding-right: 16px; }
+        .spec div:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--rule); }
+        .spec dt { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+        .spec dd { margin: 0; color: var(--ink); font-size: 15px; }
+        .spec dd a:hover { color: var(--accent); }
+
+        /* ============ Marquee ============ */
+        .marquee {
+            border-block: 1px solid var(--rule); overflow: hidden; padding: 18px 0;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+                    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+        .marquee-track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+        .marquee:hover .marquee-track { animation-play-state: paused; }
+        .marquee-track span {
+            display: inline-flex; align-items: center; gap: 28px; padding-right: 28px;
+            font-size: clamp(1.25rem, 2.4vw, 1.75rem); color: var(--ink); letter-spacing: -0.02em; white-space: nowrap;
+        }
+        .marquee-track span::after { content: "✳"; color: var(--accent); font-size: 0.7em; }
+        @keyframes marquee { to { transform: translateX(-50%); } }
+
+        /* ============ Sections ============ */
+        section.block { padding: clamp(80px, 11vw, 140px) 0; }
+        .section-head {
+            display: grid; grid-template-columns: 200px 1fr; gap: 24px 48px;
+            align-items: baseline; margin-bottom: clamp(40px, 6vw, 72px);
+        }
+        .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); display: flex; gap: 10px; }
+        .eyebrow b { color: var(--accent); font-weight: 500; }
+        .section-head h2 { font-size: clamp(2.125rem, 5vw, 4rem); letter-spacing: -0.035em; line-height: 1; max-width: 18ch; }
+        .section-head h2 .serif { color: var(--muted); }
+
+        /* About */
+        .about-grid { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+        .about-text p { font-size: 1.0625rem; line-height: 1.7; }
+        .about-text p + p { margin-top: 1.1em; }
+        .about-text p:first-child { font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.45; color: var(--ink); letter-spacing: -0.01em; }
+        .skills { border-top: 1px solid var(--ink); }
+        .skill-row { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+        .skill-row .n { font-family: var(--font-mono); font-size: 12px; color: var(--accent); padding-top: 3px; }
+        .skill-row h3 { font-size: 15px; font-weight: 500; letter-spacing: -0.005em; margin-bottom: 12px; }
+        .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .chip {
+            font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2);
+            padding: 5px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--bg-raised);
+            transition: border-color .2s ease, color .2s ease;
+        }
+        .chip:hover { border-color: var(--accent); color: var(--ink); }
+        .certs li {
+            display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+            padding: 8px 0; border-bottom: 1px dashed var(--rule); font-size: 14.5px; color: var(--ink);
+        }
+        .certs li:last-child { border-bottom: 0; padding-bottom: 0; }
+        .certs li:first-child { padding-top: 0; }
+        .certs .mono { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+        /* Experience */
+        .timeline { border-top: 1px solid var(--ink); }
+        .t-row {
+            display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1.1fr);
+            gap: 12px 48px; padding: 32px 0; border-bottom: 1px solid var(--rule);
+            position: relative; transition: background-color .3s ease;
+        }
+        .t-row::before {
+            content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 0; background: var(--accent);
+            transition: width .5s var(--ease);
+        }
+        .t-row:hover::before { width: 100%; }
+        .t-date { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 4px; }
+        .t-date.now { color: var(--accent); display: inline-flex; align-items: center; gap: 8px; }
+        .t-date.now::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        .t-role h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); letter-spacing: -0.02em; margin-bottom: 6px; }
+        .t-org { font-size: 14px; color: var(--muted); }
+        a.t-org { display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--rule-strong); transition: color .2s, border-color .2s; }
+        a.t-org:hover { color: var(--accent); border-color: var(--accent); }
+        .t-desc { font-size: 15px; line-height: 1.65; }
+        .t-desc p + p { margin-top: 8px; }
+        .t-row.past .t-role h3 { color: var(--ink-2); }
+
+        /* Projects */
+        .projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .project {
+            position: relative; display: flex; flex-direction: column;
+            background: var(--bg-raised); border: 1px solid var(--rule); border-radius: var(--radius);
+            padding: 24px; min-height: 340px;
+            transition: border-color .3s ease, transform .4s var(--ease), box-shadow .4s var(--ease);
+        }
+        .project:hover { border-color: var(--rule-strong); transform: translateY(-4px); box-shadow: 0 24px 48px -28px rgba(0,0,0,.35); }
+        .project.featured { grid-column: span 2; }
+        .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 40px; }
+        .p-icon {
+            width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center;
+            border: 1px solid var(--rule); color: var(--ink); font-size: 18px;
+            transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+        }
+        .project:hover .p-icon { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+        .p-idx { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+        .tag {
+            display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+            font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--muted); margin-bottom: 12px;
+        }
+        .tag::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--rule-strong); }
+        .tag.wip { color: var(--warn); }
+        .tag.wip::before { background: var(--warn); animation: blink 1.4s steps(1) infinite; }
+        .tag.edu::before { background: var(--accent); }
+        .project h3 { font-size: clamp(1.25rem, 1.8vw, 1.5rem); letter-spacing: -0.02em; margin-bottom: 12px; }
+        .project.featured h3 { font-size: clamp(1.5rem, 2.6vw, 2.25rem); max-width: 20ch; }
+        .project p { font-size: 14.5px; line-height: 1.65; color: var(--ink-2); flex-grow: 1; }
+        .project.featured p { font-size: 16px; max-width: 60ch; }
+        .project-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-top: 28px; padding-top: 18px; border-top: 1px dashed var(--rule); }
+        .stack { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+        .stack li { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+        .p-links { display: flex; gap: 6px; flex-shrink: 0; }
+        .p-links a {
+            width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center;
+            border: 1px solid var(--rule); color: var(--ink); font-size: 14px;
+            transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+        }
+        .p-links a:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+        /* Contact */
+        .contact { padding: clamp(96px, 13vw, 180px) 0 40px; border-top: 1px solid var(--rule); position: relative; overflow: hidden; }
+        .contact h2 { font-size: clamp(3.25rem, 12vw, 10rem); letter-spacing: -0.055em; line-height: 0.9; font-weight: 500; }
+        .contact h2 .serif { color: var(--accent); letter-spacing: -0.03em; }
+        .contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; margin-top: 56px; align-items: end; }
+        .contact-grid .lead { color: var(--ink-2); }
+        .mail {
+            display: inline-flex; align-items: center; gap: 14px; margin-top: 28px;
+            font-size: clamp(1.125rem, 2.6vw, 2rem); color: var(--ink); letter-spacing: -0.02em;
+            border-bottom: 2px solid var(--ink); padding-bottom: 6px; transition: color .2s, border-color .2s;
+            word-break: break-all;
+        }
+        .mail:hover { color: var(--accent); border-color: var(--accent); }
+        .mail .ar { display: inline-block; font-size: 0.7em; transition: transform .3s var(--ease); }
+        .mail:hover .ar { transform: translate(3px, -3px); }
+        .links-list { border-top: 1px solid var(--ink); }
+        .links-list a {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 0; border-bottom: 1px solid var(--rule); color: var(--ink); font-size: 17px;
+            transition: padding .3s var(--ease), color .2s;
+        }
+        .links-list a span.mono { color: var(--muted); }
+        .links-list a i.fa-arrow-up-right-from-square, .links-list a .go { display: inline-block; font-size: 18px !important; color: var(--muted); font-size: 13px; transition: transform .3s var(--ease), color .2s; }
+        .links-list a:hover { padding-left: 8px; color: var(--accent); }
+        .links-list a:hover .go { color: var(--accent); transform: translate(2px, -2px); }
+        .links-list .lbl { display: inline-flex; align-items: center; gap: 12px; }
+        .links-list .lbl i { width: 18px; text-align: center; color: var(--muted); }
+
+        .footer-bar {
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+            margin-top: clamp(72px, 10vw, 120px); padding-top: 24px; border-top: 1px solid var(--rule);
+            font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+        }
+        .footer-bar a:hover { color: var(--ink); }
+        .to-top { display: inline-flex; align-items: center; gap: 8px; }
+
+        /* ============ Reveal ============ */
+        .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+        .js .reveal.in { opacity: 1; transform: none; }
+        .js .hero .reveal { transition-duration: 1s; }
+        .d1 { transition-delay: .08s !important; } .d2 { transition-delay: .16s !important; } .d3 { transition-delay: .24s !important; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            html { scroll-behavior: auto; }
+            .js .reveal { opacity: 1; transform: none; }
+        }
+
+        /* ============ Responsive ============ */
+        @media (max-width: 1080px) {
+            .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .about-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+            .about-grid > .eyebrow { display: none; }
+            .t-row { grid-template-columns: 160px minmax(0, 1fr); }
+            .t-desc { grid-column: 2; }
+            .section-head { grid-template-columns: 160px 1fr; }
+        }
+        @media (max-width: 860px) {
+            .hero { padding-top: 120px; }
+            .hero-grid, .contact-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .section-head { grid-template-columns: 1fr; gap: 16px; }
+        }
+        @media (max-width: 640px) {
+            .projects { grid-template-columns: 1fr; }
+            .project.featured { grid-column: auto; }
+            .project { min-height: 0; }
+            .project-top { margin-bottom: 28px; }
+            .t-row { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; }
+            .t-desc { grid-column: auto; }
+            .spec { grid-template-columns: 1fr; }
+            .spec div:nth-child(odd), .spec div:nth-child(even) { padding-left: 0; padding-right: 0; border-left: 0; }
+        }
     </style>
 </head>
-<body class="text-slate-300 font-sans antialiased selection:bg-primary/30 selection:text-white">
+<body>
+
+    <a href="#about" class="sr-only">Přeskočit na obsah</a>
 
     <!-- Navigace -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" aria-label="Hlavní navigace">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 cursor-pointer group" onclick="window.scrollTo(0,0)">
-                    <span class="text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
-                        <span class="hidden md:inline">Ondřej <span class="text-primary group-hover:text-white transition-colors">Műhlhandel</span></span>
-                        <span class="md:hidden">0ndra_<span class="text-primary group-hover:text-white transition-colors">M_</span></span>
-                    </span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-center space-x-2">
-                        <a href="#about" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 px-4 py-2 rounded-full transition-all">O mně</a>
-                        <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 px-4 py-2 rounded-full transition-all">Zkušenosti</a>
-                        <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 px-4 py-2 rounded-full transition-all">Projekty</a>
-                        <a href="#contact" class="ml-4 text-sm font-medium text-white bg-primary hover:bg-primary_dark px-5 py-2.5 rounded-full transition-all shadow-lg shadow-primary/25">Kontakt</a>
-                    </div>
-                </div>
-                <!-- Mobilní menu tlačítko -->
-                <div class="-mr-2 flex md:hidden items-center">
-                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" type="button" class="p-2 rounded-md text-slate-400 hover:text-white focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
+    <header class="site-header" id="top-bar">
+        <div class="wrap header-inner">
+            <a href="#top" class="brand" aria-label="Ondřej Műhlhandel – zpět nahoru">
+                <span class="brand-mark" aria-hidden="true">OM</span>
+                <span class="brand-name"><span class="full">Ondřej Műhlhandel</span><span class="short">0ndra_M</span></span>
+            </a>
+            <nav class="nav" aria-label="Hlavní navigace">
+                <a href="#about" class="nav-link"><span>01</span>O mně</a>
+                <a href="#experience" class="nav-link"><span>02</span>Praxe</a>
+                <a href="#projects" class="nav-link"><span>03</span>Projekty</a>
+                <a href="#contact" class="btn btn-sm btn-primary" style="margin-left:8px">Kontakt</a>
+                <button class="icon-btn" id="theme-toggle" type="button" aria-label="Přepnout světlý/tmavý režim" style="margin-left:8px">
+                    <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu" style="margin-left:6px">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </nav>
         </div>
-        <!-- Mobilní menu -->
-        <div class="hidden md:hidden bg-surface border-b border-surface_light absolute w-full" id="mobile-menu">
-            <div class="px-4 pt-2 pb-4 space-y-1">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">O mně</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Zkušenosti</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-white/5">Projekty</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-primary mt-2">Kontakt</a>
-            </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#about">O mně <span>01</span></a>
+            <a href="#experience">Praxe & vzdělání <span>02</span></a>
+            <a href="#projects">Projekty <span>03</span></a>
+            <a href="#contact">Kontakt <span>04</span></a>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Sekce -->
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <!-- Background Effects -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] opacity-50 mix-blend-screen animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] opacity-50 mix-blend-screen"></div>
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIwdi0yMHptLTIwIDBoMjB2MjBIMHYtMjB6bTIwLTIwaDIwdjIwSDIwdjIweiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjAxNCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+')] opacity-20"></div>
-        </div>
+    <main id="top">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="wrap">
+                <div class="status reveal"><span class="pulse" aria-hidden="true"></span> Otevřen novým výzvám</div>
 
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full text-center md:text-left">
-            <div class="max-w-3xl md:ml-auto md:mr-auto lg:ml-0 lg:mr-0 fade-in-up">
-                
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
-                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    Otevřen novým výzvám
-                </div>
-                
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
-                    Tvořím <span class="gradient-text">funkční weby</span> <br class="hidden lg:block">
-                    a pevné systémy.
-                </h1>
-                
-                <div class="h-8 mb-6 flex justify-center md:justify-start">
-                    <p class="text-xl sm:text-2xl font-medium text-slate-300">
-                        Jsem <span id="typewriter" class="typewriter-cursor font-mono text-primary"></span>
-                    </p>
-                </div>
+                <h1 class="reveal d1">Tvořím funkční weby <span class="serif">a pevné systémy.</span></h1>
 
-                <p class="text-lg text-slate-400 max-w-2xl mb-10 leading-relaxed mx-auto md:mx-0">
-                    Student 3. ročníku Aplikované informatiky. Propojuji svět systémové administrace (Linux, Cisco) s moderním full-stack programováním. Aktuálně působím jako CTO ve studiu Roosteo.
-                </p>
-
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                    <a href="#projects" class="bg-primary hover:bg-primary_dark text-white px-8 py-3.5 rounded-full font-medium transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_25px_rgba(99,102,241,0.5)]">
-                        Zobrazit projekty
-                    </a>
-                    <a href="https://github.com/0ndraM" target="_blank" rel="noopener noreferrer" class="bg-surface hover:bg-surface_light text-white px-6 py-3.5 rounded-full font-medium transition-all border border-surface_light flex items-center gap-2">
-                        <i class="fab fa-github text-lg"></i> GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/Ondram" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#0a66c2] p-3 transition-colors">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekce O mně -->
-    <section id="about" class="py-24 bg-surface/30 border-y border-white/5 relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <!-- O mně text -->
-                <div>
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">O mně</h2>
-                    <h3 class="text-3xl font-bold text-white mb-6">Technologie jako nástroj, ne jen cíl.</h3>
-                    
-                    <div class="prose prose-invert prose-slate prose-lg text-slate-400 leading-relaxed">
-                        <p class="mb-4">
-                            Jsem studentem <strong>3. ročníku Aplikované informatiky na VŠPJ</strong>. Fascinuje mě svět technologií, od návrhu komplexní databáze a psaní kódu až po správu a zabezpečení serverů. 
+                <div class="hero-grid">
+                    <div class="reveal d2">
+                        <p class="typeline" aria-live="polite"><span class="prompt">~$</span>jsem <span id="typewriter">CTO @ Roosteo</span><span class="caret" aria-hidden="true"></span></p>
+                        <p class="lead">
+                            Student 3. ročníku Aplikované informatiky. Propojuji svět systémové administrace (Linux, Cisco) s moderním full-stack programováním. Aktuálně působím jako CTO ve studiu Roosteo.
                         </p>
-                        <p class="mb-4">
-                            Baví mě pracovat s různými operačními systémy – od <strong>Windows</strong> přes <strong>Linux</strong> až po <strong>BSD</strong> a <strong>macOS</strong>. 
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary">Zobrazit projekty <i class="fas fa-arrow-right arrow" aria-hidden="true"></i></a>
+                            <a href="https://github.com/0ndraM" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                            <a href="https://www.linkedin.com/in/0ndram" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                    <dl class="spec reveal d3">
+                        <div><dt>Role</dt><dd><a href="https://roosteo.cz" target="_blank" rel="noopener noreferrer">CTO @ Roosteo</a></dd></div>
+                        <div><dt>Studium</dt><dd>VŠPJ, 3. ročník</dd></div>
+                        <div><dt>Lokalita</dt><dd>Třebíč, Vysočina</dd></div>
+                        <div><dt>Místní čas</dt><dd><span id="clock">—</span> <span class="mono" style="color:var(--muted)">CET</span></dd></div>
+                        <div><dt>Kód</dt><dd>C# · .NET · PHP · Symfony</dd></div>
+                        <div><dt>Infra</dt><dd>Linux · Docker · Cisco</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>C# / .NET</span><span>PHP 8</span><span>Symfony</span><span>Linux</span><span>Docker</span><span>Cisco Networking</span><span>MySQL</span><span>PWA</span><span>Cybersecurity</span><span>Tailwind</span>
+                <span>C# / .NET</span><span>PHP 8</span><span>Symfony</span><span>Linux</span><span>Docker</span><span>Cisco Networking</span><span>MySQL</span><span>PWA</span><span>Cybersecurity</span><span>Tailwind</span>
+            </div>
+        </div>
+
+        <!-- O mně -->
+        <section id="about" class="block">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <div class="eyebrow"><b>01</b> O mně</div>
+                    <h2>Technologie jako nástroj, <span class="serif">ne jen cíl.</span></h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="eyebrow" aria-hidden="true"></div>
+                    <div class="about-text reveal">
+                        <p>
+                            Jsem studentem <strong>3. ročníku Aplikované informatiky na VŠPJ</strong>. Fascinuje mě svět technologií, od návrhu komplexní databáze a psaní kódu až po správu a zabezpečení serverů.
+                        </p>
+                        <p>
+                            Baví mě pracovat s různými operačními systémy – od <strong>Windows</strong> přes <strong>Linux</strong> až po <strong>BSD</strong> a <strong>macOS</strong>.
                             Nezáleží mi jen na tom, aby kód fungoval, ale aby byl systém bezpečný, spolehlivý a dobře navržený.
                         </p>
                         <p>
                             Kromě vývoje webových aplikací a C# mám velmi blízko k počítačovým sítím a kybernetické bezpečnosti, což dokládají mé certifikace z Cisco Networking Academy.
                         </p>
                     </div>
-                </div>
 
-                <!-- Dovednosti Tagy -->
-                <div class="mt-8 lg:mt-0 space-y-8">
-                    <!-- Block 1 -->
-                    <div class="bg-surface/50 p-6 rounded-2xl border border-white/5">
-                        <h4 class="text-white font-medium mb-4 flex items-center gap-2"><i class="fas fa-layer-group text-primary"></i> Backend & Aplikace</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">PHP 8+</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">C# / .NET</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">Symfony</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">MySQL / SQL</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">C / C++</span>
+                    <div class="skills reveal d1">
+                        <div class="skill-row">
+                            <span class="n">A.</span>
+                            <div>
+                                <h3>Backend & Aplikace</h3>
+                                <ul class="chips">
+                                    <li class="chip">PHP 8+</li><li class="chip">C# / .NET</li><li class="chip">Symfony</li><li class="chip">MySQL / SQL</li><li class="chip">C / C++</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <span class="n">B.</span>
+                            <div>
+                                <h3>Sítě & Infrastruktura</h3>
+                                <ul class="chips">
+                                    <li class="chip">Docker</li><li class="chip">Linux Admin</li><li class="chip">Cisco Networking</li><li class="chip">Cybersecurity</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <span class="n">C.</span>
+                            <div>
+                                <h3>Frontend & Design</h3>
+                                <ul class="chips">
+                                    <li class="chip">Tailwind CSS</li><li class="chip">Vanilla JS</li><li class="chip">PWA</li><li class="chip">HTML5 / CSS3</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <span class="n">D.</span>
+                            <div>
+                                <h3>Certifikace</h3>
+                                <ul class="certs">
+                                    <li><span>CCNA: Switching, Routing &amp; Wireless Essentials</span><span class="mono">Cisco · 2023</span></li>
+                                    <li><span>CCNA: Introduction to Networks</span><span class="mono">Cisco · 2022</span></li>
+                                    <li><span>Cybersecurity Essentials</span><span class="mono">Cisco · 2022</span></li>
+                                    <li><span>Introduction to Cybersecurity</span><span class="mono">Cisco · 2021</span></li>
+                                    <li><span>NDG Linux Unhatched</span><span class="mono">Cisco / NDG</span></li>
+                                    <li><span>Machine Learning Onramp</span><span class="mono">MathWorks · 2026</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <!-- Block 2 -->
-                    <div class="bg-surface/50 p-6 rounded-2xl border border-white/5">
-                        <h4 class="text-white font-medium mb-4 flex items-center gap-2"><i class="fas fa-server text-primary"></i> Sítě & Infrastruktura</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">Docker</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">Linux Admin</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">Cisco CCNA</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">Cybersecurity</span>
-                        </div>
-                    </div>
-                    <!-- Block 3 -->
-                    <div class="bg-surface/50 p-6 rounded-2xl border border-white/5">
-                        <h4 class="text-white font-medium mb-4 flex items-center gap-2"><i class="fas fa-desktop text-primary"></i> Frontend & Design</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">Tailwind CSS</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">Vanilla JS</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">PWA</span>
-                            <span class="px-3 py-1.5 bg-surface rounded-lg text-sm text-slate-300 border border-white/10 shadow-sm">HTML5 / CSS3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekce Zkušenosti (Timeline) -->
-    <section id="experience" class="py-24">
-        <div class="max-w-4xl mx-auto px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 text-center">Praxe & Vzdělání</h2>
-            
-            <div class="relative border-l border-surface_light ml-3 md:ml-0 md:pl-0 space-y-12">
-                
-                <!-- Roosteo -->
-                <div class="relative pl-8 md:pl-0">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 md:text-right mb-2 md:mb-0 pt-1">
-                            <span class="text-sm font-mono text-primary">Současnost</span>
-                        </div>
-                        <div class="absolute left-[-5px] md:left-[20%] md:-ml-[5px] top-2 w-2.5 h-2.5 bg-primary rounded-full ring-4 ring-[#0b1120]"></div>
-                        <div class="md:col-span-4 md:pl-10">
-                            <h3 class="text-xl font-bold text-white mb-1">CTO & Web Developer</h3>
-                            <a href="https://roosteo.cz" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-slate-400 hover:text-primary transition-colors inline-flex items-center gap-1 mb-3">
-                                Roosteo.cz <i class="fas fa-external-link-alt text-[10px]"></i>
-                            </a>
-                            <p class="text-slate-400 leading-relaxed text-sm">
-                                Vedení technického vývoje studia. Budování komplexních technických projektů od samotných základů. Působím jako technický konzultant pro náročná zadání, efektivně propojuji obchodní cíle a technologie.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Item: VŠ -->
-                <div class="relative pl-8 md:pl-0">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 md:text-right mb-2 md:mb-0 pt-1">
-                            <span class="text-sm font-mono text-slate-500">2024 - Nyní</span>
-                        </div>
-                        <div class="absolute left-[-5px] md:left-[20%] md:-ml-[5px] top-2 w-2.5 h-2.5 bg-surface_light rounded-full ring-4 ring-[#0b1120]"></div>
-                        <div class="md:col-span-4 md:pl-10">
-                            <h3 class="text-xl font-bold text-white mb-1">Bc., Aplikovaná informatika</h3>
-                            <p class="text-sm font-medium text-slate-400 mb-3">Vysoká škola polytechnická Jihlava</p>
-                            <p class="text-slate-400 leading-relaxed text-sm">
-                                Aktuálně 3. ročník. Zaměření na softwarové inženýrství, sítě a databáze. 
-                                Píšu bakalářskou práci na téma Offline-first PWA pro správu rozvrhů s automatizovaným importem pomocí multimodálních AI modelů.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- I&C Energo -->
-                <div class="relative pl-8 md:pl-0">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 md:text-right mb-2 md:mb-0 pt-1">
-                            <span class="text-sm font-mono text-slate-500">2024 (2 měs.)</span>
-                        </div>
-                        <div class="absolute left-[-5px] md:left-[20%] md:-ml-[5px] top-2 w-2.5 h-2.5 bg-surface_light rounded-full ring-4 ring-[#0b1120]"></div>
-                        <div class="md:col-span-4 md:pl-10">
-                            <h3 class="text-xl font-bold text-white mb-1">Senior ICT Administrátor</h3>
-                            <p class="text-sm font-medium text-slate-400 mb-3">I&C Energo a.s.</p>
-                            <p class="text-slate-400 leading-relaxed text-sm">
-                                Správa ICT infrastruktury, řešení technických problémů a zajištění chodu podnikových systémů.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PC HELP -->
-                <div class="relative pl-8 md:pl-0">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 md:text-right mb-2 md:mb-0 pt-1">
-                            <span class="text-sm font-mono text-slate-500">2022 (2 měs.)</span>
-                        </div>
-                        <div class="absolute left-[-5px] md:left-[20%] md:-ml-[5px] top-2 w-2.5 h-2.5 bg-surface_light rounded-full ring-4 ring-[#0b1120]"></div>
-                        <div class="md:col-span-4 md:pl-10">
-                            <h3 class="text-xl font-bold text-white mb-1">IT specialista (Stáž)</h3>
-                            <p class="text-sm font-medium text-slate-400 mb-3">PC HELP, a.s.</p>
-                            <p class="text-slate-400 leading-relaxed text-sm">
-                                Technická podpora, správa koncových stanic a asistence při správě serverů v komerčním prostředí.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- VUT & SPŠ -->
-                 <div class="relative pl-8 md:pl-0">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 md:text-right mb-2 md:mb-0 pt-1">
-                            <span class="text-sm font-mono text-slate-600">2019 - 2024</span>
-                        </div>
-                        <div class="absolute left-[-5px] md:left-[20%] md:-ml-[5px] top-2 w-2.5 h-2.5 bg-surface_light/50 rounded-full ring-4 ring-[#0b1120]"></div>
-                        <div class="md:col-span-4 md:pl-10">
-                            <h3 class="text-lg font-bold text-white/80 mb-1">Předchozí vzdělání</h3>
-                            <p class="text-slate-400 text-sm mb-2"><strong>Vysoké učení technické v Brně</strong> (IT, 2023-2024)</p>
-                            <p class="text-slate-400 text-sm"><strong>Střední průmyslová škola Třebíč</strong> (IT, 2019-2023) - Závěrečný projekt: Simulátor šifrovacího stroje Enigma v C#.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekce Projekty -->
-    <section id="projects" class="py-24 bg-surface/20 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">Portfolio</h2>
-                    <h3 class="text-3xl font-bold text-white">Vybrané projekty</h3>
                 </div>
             </div>
-            
-            <!-- Grid Projektů -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </section>
 
-                <!-- Projekt 1: PWA Bakalářka -->
-                <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-colors">
-                            <i class="fas fa-brain text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                             <span class="text-[10px] uppercase font-bold tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20"><i class="fas fa-spinner animate-spin mr-1"></i> Ve vývoji (Bakalářka)</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">PWA Správa rozvrhů & AI</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Offline-first PWA pro správu rozvrhů s AI importem obrazu. Srovnání modelů Gemini a GPT-4o s Tesseract OCR. Projekt řeší detekci halucinací pomocí confidence scoringu a doménových sanity checks. Plný offline chod díky IndexedDB a Sync Queue. Na projektu aktuálně pracuji.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">PWA</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">IndexedDB</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">Gemini/GPT-4o</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projekt 2: P2J Motocross -->
-                <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                            <i class="fas fa-motorcycle text-xl"></i>
-                        </div>
-                        <div class="flex gap-3 text-slate-400">
-                             <a href="https://p2j.cz" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors" aria-label="Live Demo"><i class="fas fa-external-link-alt text-xl"></i></a>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">P2J – Motocross Systém</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Komplexní provozní a rezervační systém. Obsahuje masivní PHP 8 REST API, pokročilé RBAC (5 rolí), interaktivní FullCalendar, katalog motorek, generátor směn a plně konfigurovatelného AI chat asistenta pro rezervace servisu.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">PHP 8 API</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">Vanilla JS</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">Tailwind CSS</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projekt 3: Web4Grade -->
-                <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
-                            <i class="fas fa-graduation-cap text-xl"></i>
-                        </div>
-                        <div class="flex gap-3 text-slate-400">
-                            <a href="https://github.com/0ndraM/Web4Grade" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-                            <a href="https://0ndra.maweb.eu/Web4Grade/index.php" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors" aria-label="Live Demo"><i class="fas fa-external-link-alt text-xl"></i></a>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Web4Grade</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Webová aplikace pro správu objednávek školních projektů. Umožňuje zadávat projekty, komunikovat s vývojářem přes chat, sledovat stav zakázky a provádět bezpečné platby přes QR kód po zhlédnutí testovací verze.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">PHP 8.2</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">Tailwind</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">Docker</span>
-                        </div>
-                    </div>
-                </article>
-
-                 <!-- Projekt 4: Filmová DB -->
-                 <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-400 group-hover:bg-rose-500 group-hover:text-white transition-colors">
-                            <i class="fas fa-film text-xl"></i>
-                        </div>
-                        <div class="flex gap-3 text-slate-400">
-                            <a href="https://github.com/0ndraM/filmdb" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-                            <a href="https://0ndra.maweb.eu/FilmDB/index.php" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors" aria-label="Live Demo"><i class="fas fa-external-link-alt text-xl"></i></a>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">Projekt NUR</span>
-                       </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">Filmová databáze (Desktop)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Komplexní systém pro správu filmů s oddělenými přístupy (User, Admin, Owner). Zahrnuje webové rozhraní (PHP API) a plnohodnotného desktopového C# WinForms klienta využívajícího JWT.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">C# .NET</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">WinForms</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">PHP API</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projekt 5: Chronos -->
-                <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-stone-500/10 rounded-xl flex items-center justify-center text-stone-400 group-hover:bg-stone-500 group-hover:text-white transition-colors">
-                            <i class="fas fa-clock text-xl"></i>
-                        </div>
-                        <div class="flex gap-3 text-slate-400">
-                            <a href="https://github.com/0ndraM/NurHtml" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-                            <a href="http://195.113.207.163/~muhlha01/nur/ZPwww/NurHtml/www/" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors" aria-label="Live Demo"><i class="fas fa-external-link-alt text-xl"></i></a>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 bg-stone-500/10 px-2 py-0.5 rounded border border-stone-500/20">Projekt NUR</span>
-                       </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-stone-400 transition-colors">Chronos - Svět hodinek</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Vzdělávací webová prezentace o historii, mechanice a typech hodinek. Moderní responzivní design vytvořený s pomocí Bootstrap 5, zahrnuje interaktivní prvky a časovou osu.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">Bootstrap 5</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">PHP 8.2</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">HTML/CSS</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projekt 6: Letter -->
-                <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-                            <i class="fas fa-envelope-open-text text-xl"></i>
-                        </div>
-                        <div class="flex gap-3 text-slate-400">
-                            <a href="https://github.com/0ndraM/Letter" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Letter – Zanechte stopu</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Webová aplikace pro psaní a sdílení dopisů. Uživatelé mohou využívat rich-text editor (Quill.js) pro formátování a systém generuje unikátní hash odkazy pro bezpečné sdílení chráněné heslem.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">PHP 8.2</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">Quill.js</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">MySQL</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projekt 7: Enigma -->
-                <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                            <i class="fas fa-key text-xl"></i>
-                        </div>
-                        <div class="flex gap-3 text-slate-400">
-                            <a href="https://github.com/0ndraM/Enigma-C-sharp" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Maturitní projekt</span>
-                       </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">Simulátor Enigma</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Věrná softwarová simulace historického šifrovacího stroje Enigma v desktopovém prostředí. Aplikace demonstruje vnitřní fungování složité mechaniky a rotorů pomocí objektového programování.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">C#</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">.NET Core</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">WinForms</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Projekt 8: GitHub Tracker -->
-                <article class="project-card bg-surface rounded-2xl border border-white/5 overflow-hidden flex flex-col h-full group">
-                    <div class="p-6 pb-0 flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-400 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
-                            <i class="fab fa-python text-xl"></i>
-                        </div>
-                        <div class="flex gap-3 text-slate-400">
-                            <a href="https://github.com/0ndraM/GitHubInfo" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">GitHub Advanced Tracker</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Nástroj pro sledování odpracovaného času, aktivity a detailních statistik GitHub repozitářů. Nabízí grafické uživatelské rozhraní, jazykovou analýzu a automatický výpočet odpracované doby na základě commitů.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="text-xs font-mono text-slate-300">Python 3</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">GitHub API</span>
-                            <span class="text-xs font-mono text-slate-500">•</span>
-                            <span class="text-xs font-mono text-slate-300">GUI</span>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Kontakt -->
-    <footer id="contact" class="bg-surface border-t border-white/5 pt-20 pb-10">
-        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">Spojme se</h2>
-            <p class="text-slate-400 mb-10 max-w-xl mx-auto text-lg">
-                Zaujala tě moje práce? Hledáš posilu do týmu nebo technologického partnera? Napiš mi.
-            </p>
-            
-            <div class="flex justify-center gap-4 mb-16 flex-wrap">
-                <a href="mailto:ondrejmuhlhandel@gmail.com" class="flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors">
-                    <i class="fas fa-envelope text-primary"></i> ondrejmuhlhandel@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/Ondram" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors">
-                    <i class="fab fa-linkedin text-[#0a66c2]"></i> LinkedIn
-                </a>
-                 <a href="https://roosteo.cz" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors">
-                    <i class="fas fa-building text-primary"></i> Roosteo
-                </a>
-            </div>
-            
-            <div class="text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-8">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Ondřej Műhlhandel.</p>
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="https://github.com/0ndraM" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-github text-lg"></i></a>
-                    <a href="https://www.instagram.com/0ndra_m_/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+        <!-- Praxe & Vzdělání -->
+        <section id="experience" class="block" style="padding-top:0">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <div class="eyebrow"><b>02</b> Praxe & vzdělání</div>
+                    <h2>Kde jsem byl <span class="serif">a kde jsem teď.</span></h2>
                 </div>
+
+                <div class="timeline">
+                    <article class="t-row reveal">
+                        <div><span class="t-date now">Současnost</span></div>
+                        <div class="t-role">
+                            <h3>CTO & Web Developer</h3>
+                            <a href="https://roosteo.cz" target="_blank" rel="noopener noreferrer" class="t-org">Roosteo.cz <i class="fas fa-arrow-up-right-from-square" style="font-size:10px" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="t-desc">
+                            <p>Vedení technického vývoje studia. Budování komplexních technických projektů od samotných základů. Působím jako technický konzultant pro náročná zadání, efektivně propojuji obchodní cíle a technologie.</p>
+                        </div>
+                    </article>
+
+                    <article class="t-row reveal">
+                        <div><span class="t-date">2024 — Nyní</span></div>
+                        <div class="t-role">
+                            <h3>Bc., Aplikovaná informatika</h3>
+                            <span class="t-org">Vysoká škola polytechnická Jihlava</span>
+                        </div>
+                        <div class="t-desc">
+                            <p>Aktuálně 3. ročník. Zaměření na softwarové inženýrství, sítě a databáze. Píšu bakalářskou práci na téma Offline-first PWA pro správu rozvrhů s automatizovaným importem pomocí multimodálních AI modelů.</p>
+                        </div>
+                    </article>
+
+                    <article class="t-row reveal">
+                        <div><span class="t-date">2024 · 2 měs.</span></div>
+                        <div class="t-role">
+                            <h3>Senior ICT Administrátor</h3>
+                            <span class="t-org">I&C Energo a.s.</span>
+                        </div>
+                        <div class="t-desc">
+                            <p>Správa ICT infrastruktury, řešení technických problémů a zajištění chodu podnikových systémů.</p>
+                        </div>
+                    </article>
+
+                    <article class="t-row reveal">
+                        <div><span class="t-date">2022 · 2 měs.</span></div>
+                        <div class="t-role">
+                            <h3>IT specialista (Stáž)</h3>
+                            <span class="t-org">PC HELP, a.s.</span>
+                        </div>
+                        <div class="t-desc">
+                            <p>Technická podpora, správa koncových stanic a asistence při správě serverů v komerčním prostředí.</p>
+                        </div>
+                    </article>
+
+                    <article class="t-row past reveal">
+                        <div><span class="t-date">2019 — 2024</span></div>
+                        <div class="t-role">
+                            <h3>Předchozí vzdělání</h3>
+                            <span class="t-org">VUT Brno · SPŠ Třebíč</span>
+                        </div>
+                        <div class="t-desc">
+                            <p><strong>Vysoké učení technické v Brně</strong> (IT, 2023–2024)</p>
+                            <p><strong>Střední průmyslová škola Třebíč</strong> (IT, 2019–2023) – Závěrečný projekt: Simulátor šifrovacího stroje Enigma v C#.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projekty -->
+        <section id="projects" class="block" style="padding-top:0">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <div class="eyebrow"><b>03</b> Portfolio</div>
+                    <h2>Vybrané projekty <span class="serif">(08)</span></h2>
+                </div>
+
+                <div class="projects">
+
+                    <!-- Projekt 1: PWA Bakalářka -->
+                    <article class="project featured reveal">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fas fa-brain" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/01</span>
+                        </div>
+                        <span class="tag wip">Ve vývoji · Bakalářka</span>
+                        <h3>PWA Správa rozvrhů & AI</h3>
+                        <p>Offline-first PWA pro správu rozvrhů s AI importem obrazu. Srovnání modelů Gemini a GPT-4o s Tesseract OCR. Projekt řeší detekci halucinací pomocí confidence scoringu a doménových sanity checks. Plný offline chod díky IndexedDB a Sync Queue. Na projektu aktuálně pracuji.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>PWA</li><li>IndexedDB</li><li>Gemini/GPT-4o</li><li>Tesseract OCR</li></ul>
+                        </div>
+                    </article>
+
+                    <!-- Projekt 2: P2J Motocross -->
+                    <article class="project reveal d1">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fas fa-motorcycle" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/02</span>
+                        </div>
+                        <span class="tag">Komerční projekt</span>
+                        <h3>P2J – Motocross Systém</h3>
+                        <p>Komplexní provozní a rezervační systém. Obsahuje masivní PHP 8 REST API, pokročilé RBAC (5 rolí), interaktivní FullCalendar, katalog motorek, generátor směn a plně konfigurovatelného AI chat asistenta pro rezervace servisu.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>PHP 8 API</li><li>Vanilla JS</li><li>Tailwind CSS</li></ul>
+                            <div class="p-links">
+                                <a href="https://p2j.cz" target="_blank" rel="noopener noreferrer" aria-label="P2J – živá ukázka"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projekt 3: Web4Grade -->
+                    <article class="project reveal">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/03</span>
+                        </div>
+                        <span class="tag">Webová aplikace</span>
+                        <h3>Web4Grade</h3>
+                        <p>Webová aplikace pro správu objednávek školních projektů. Umožňuje zadávat projekty, komunikovat s vývojářem přes chat, sledovat stav zakázky a provádět bezpečné platby přes QR kód po zhlédnutí testovací verze.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>PHP 8.2</li><li>Tailwind</li><li>Docker</li></ul>
+                            <div class="p-links">
+                                <a href="https://github.com/0ndraM/Web4Grade" target="_blank" rel="noopener noreferrer" aria-label="Web4Grade na GitHubu"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                <a href="https://0ndra.maweb.eu/Web4Grade/index.php" target="_blank" rel="noopener noreferrer" aria-label="Web4Grade – živá ukázka"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projekt 4: Filmová DB -->
+                    <article class="project reveal d1">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fas fa-film" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/04</span>
+                        </div>
+                        <span class="tag edu">Projekt NUR</span>
+                        <h3>Filmová databáze (Desktop)</h3>
+                        <p>Komplexní systém pro správu filmů s oddělenými přístupy (User, Admin, Owner). Zahrnuje webové rozhraní (PHP API) a plnohodnotného desktopového C# WinForms klienta využívajícího JWT.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>C# .NET</li><li>WinForms</li><li>PHP API</li></ul>
+                            <div class="p-links">
+                                <a href="https://github.com/0ndraM/filmdb" target="_blank" rel="noopener noreferrer" aria-label="Filmová databáze na GitHubu"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                <a href="https://0ndra.maweb.eu/FilmDB/index.php" target="_blank" rel="noopener noreferrer" aria-label="Filmová databáze – živá ukázka"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projekt 5: Chronos -->
+                    <article class="project reveal d2">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fas fa-clock" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/05</span>
+                        </div>
+                        <span class="tag edu">Projekt NUR</span>
+                        <h3>Chronos – Svět hodinek</h3>
+                        <p>Vzdělávací webová prezentace o historii, mechanice a typech hodinek. Moderní responzivní design vytvořený s pomocí Bootstrap 5, zahrnuje interaktivní prvky a časovou osu.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>Bootstrap 5</li><li>PHP 8.2</li><li>HTML/CSS</li></ul>
+                            <div class="p-links">
+                                <a href="https://github.com/0ndraM/NurHtml" target="_blank" rel="noopener noreferrer" aria-label="Chronos na GitHubu"><i class="fab fa-github" aria-hidden="true"></i></a>
+                                <a href="http://195.113.207.163/~muhlha01/nur/ZPwww/NurHtml/www/" target="_blank" rel="noopener noreferrer" aria-label="Chronos – živá ukázka"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projekt 6: Letter -->
+                    <article class="project reveal">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fas fa-envelope-open-text" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/06</span>
+                        </div>
+                        <span class="tag">Webová aplikace</span>
+                        <h3>Letter – Zanechte stopu</h3>
+                        <p>Webová aplikace pro psaní a sdílení dopisů. Rich-text editor (Quill.js) pro formátování, účty chráněné heslem a každý dopis dostane unikátní náhodný odkaz, přes který ho lze sdílet s kýmkoliv.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>PHP 8.2</li><li>Quill.js</li><li>MySQL</li><li>Docker</li></ul>
+                            <div class="p-links">
+                                <a href="https://github.com/0ndraM/Letter" target="_blank" rel="noopener noreferrer" aria-label="Letter na GitHubu"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projekt 7: Enigma -->
+                    <article class="project reveal d1">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fas fa-key" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/07</span>
+                        </div>
+                        <span class="tag edu">Maturitní projekt</span>
+                        <h3>Simulátor Enigma</h3>
+                        <p>Věrná softwarová simulace historického šifrovacího stroje Enigma v desktopovém prostředí. Aplikace demonstruje vnitřní fungování složité mechaniky a rotorů pomocí objektového programování.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>C#</li><li>.NET Framework</li><li>WinForms</li></ul>
+                            <div class="p-links">
+                                <a href="https://github.com/0ndraM/Enigma-C-sharp" target="_blank" rel="noopener noreferrer" aria-label="Enigma na GitHubu"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projekt 8: GitHub Tracker -->
+                    <article class="project reveal d2">
+                        <div class="project-top">
+                            <span class="p-icon"><i class="fab fa-python" aria-hidden="true"></i></span>
+                            <span class="p-idx">P/08</span>
+                        </div>
+                        <span class="tag">Nástroj</span>
+                        <h3>GitHub Advanced Tracker</h3>
+                        <p>Nástroj pro sledování odpracovaného času, aktivity a detailních statistik GitHub repozitářů. Nabízí grafické uživatelské rozhraní, jazykovou analýzu a automatický výpočet odpracované doby na základě commitů.</p>
+                        <div class="project-foot">
+                            <ul class="stack"><li>Python 3</li><li>GitHub API</li><li>GUI</li></ul>
+                            <div class="p-links">
+                                <a href="https://github.com/0ndraM/GitHubInfo" target="_blank" rel="noopener noreferrer" aria-label="GitHub Advanced Tracker na GitHubu"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Kontakt -->
+    <footer id="contact" class="contact">
+        <div class="wrap">
+            <div class="eyebrow reveal" style="margin-bottom:28px"><b>04</b> Kontakt</div>
+            <h2 class="reveal d1">Spojme <span class="serif">se.</span></h2>
+
+            <div class="contact-grid">
+                <div class="reveal d2">
+                    <p class="lead">Zaujala tě moje práce? Hledáš posilu do týmu nebo technologického partnera? Napiš mi.</p>
+                    <a href="mailto:ondrejmuhlhandel@gmail.com" class="mail">ondrejmuhlhandel@gmail.com <span class="ar" aria-hidden="true">↗</span></a>
+                </div>
+                <div class="links-list reveal d3">
+                    <a href="https://www.linkedin.com/in/0ndram" target="_blank" rel="noopener noreferrer"><span class="lbl"><i class="fab fa-linkedin-in" aria-hidden="true"></i>LinkedIn</span><span class="go" aria-hidden="true">↗</span></a>
+                    <a href="https://github.com/0ndraM" target="_blank" rel="noopener noreferrer"><span class="lbl"><i class="fab fa-github" aria-hidden="true"></i>GitHub</span><span class="go" aria-hidden="true">↗</span></a>
+                    <a href="https://roosteo.cz" target="_blank" rel="noopener noreferrer"><span class="lbl"><i class="fas fa-building" aria-hidden="true"></i>Roosteo</span><span class="go" aria-hidden="true">↗</span></a>
+                    <a href="https://www.instagram.com/0ndra_m_/" target="_blank" rel="noopener noreferrer"><span class="lbl"><i class="fab fa-instagram" aria-hidden="true"></i>Instagram</span><span class="go" aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+
+            <div class="footer-bar">
+                <span>&copy; <span id="year">2026</span> Ondřej Műhlhandel</span>
+                <span>Třebíč, CZ</span>
+                <a href="#top" class="to-top">Zpět nahoru <i class="fas fa-arrow-up" aria-hidden="true"></i></a>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Typewriter Effect
-        const textElement = document.getElementById('typewriter');
-        const texts = ["CTO @ Roosteo", "C# & .NET Vývojář", "Full-Stack Vývojář", "Student VŠPJ"];
-        let textIndex = 0; let charIndex = 0; let isDeleting = false; let typeSpeed = 100;
+        (function () {
+            var root = document.documentElement;
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        function type() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 40;
+            // Rok v patičce
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Přepínač tématu
+            var toggle = document.getElementById('theme-toggle');
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            function currentTheme() {
+                return root.getAttribute('data-theme') || (darkQuery.matches ? 'dark' : 'light');
+            }
+            toggle.addEventListener('click', function () {
+                var next = currentTheme() === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+            });
+
+            // Mobilní menu
+            var menuBtn = document.getElementById('menu-toggle');
+            var menu = document.getElementById('mobile-menu');
+            function setMenu(open) {
+                menu.classList.toggle('open', open);
+                menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                menuBtn.innerHTML = open ? '<i class="fas fa-xmark" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
+            }
+            menuBtn.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+            menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+            // Okraj hlavičky při scrollu
+            var bar = document.getElementById('top-bar');
+            function onScroll() { bar.classList.toggle('scrolled', window.scrollY > 10); }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // Místní čas (Praha)
+            var clock = document.getElementById('clock');
+            function tick() {
+                try {
+                    clock.textContent = new Intl.DateTimeFormat('cs-CZ', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Prague' }).format(new Date());
+                } catch (e) { clock.textContent = ''; }
+            }
+            tick(); setInterval(tick, 15000);
+
+            // Reveal při scrollu
+            var items = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window && !reduceMotion) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                    });
+                }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+                items.forEach(function (el) { io.observe(el); });
             } else {
-                textElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 80;
+                items.forEach(function (el) { el.classList.add('in'); });
             }
 
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                typeSpeed = 2500;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typeSpeed = 500;
+            // Aktivní odkaz v navigaci
+            var links = document.querySelectorAll('.nav-link');
+            if ('IntersectionObserver' in window) {
+                var so = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) {
+                            links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id); });
+                        }
+                    });
+                }, { rootMargin: '-45% 0px -50% 0px' });
+                ['about', 'experience', 'projects'].forEach(function (id) { var s = document.getElementById(id); if (s) so.observe(s); });
             }
-            setTimeout(type, typeSpeed);
-        }
-        document.addEventListener('DOMContentLoaded', type);
 
-        // Navbar shadow on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 10) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
+            // Typewriter
+            var el = document.getElementById('typewriter');
+            var texts = ['CTO @ Roosteo', 'C# & .NET vývojář', 'full-stack vývojář', 'student VŠPJ'];
+            if (reduceMotion) return;
+            var ti = 0, ci = texts[0].length, deleting = true;
+            function type() {
+                var t = texts[ti], delay;
+                if (deleting) {
+                    ci--; el.textContent = t.substring(0, ci); delay = 35;
+                    if (ci === 0) { deleting = false; ti = (ti + 1) % texts.length; delay = 400; }
+                } else {
+                    ci++; el.textContent = texts[ti].substring(0, ci); delay = 75;
+                    if (ci === texts[ti].length) { deleting = true; delay = 2400; }
+                }
+                setTimeout(type, delay);
             }
-        });
+            setTimeout(type, 2600);
+        })();
     </script>
 </body>
 </html>

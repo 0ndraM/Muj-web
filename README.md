@@ -1,7 +1,7 @@
 # Osobní Portfolio - Ondřej Műhlhandel
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://0ndra.maweb.eu/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ondram-0077b5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/Ondram)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0ndram-0077b5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/0ndram)
 [![GitHub](https://img.shields.io/badge/GitHub-0ndraM-181717?style=for-the-badge&logo=github)](https://github.com/0ndraM)
 
 Moderní, responsivní osobní portfolio webová stránka vytvořená pro prezentaci mých dovedností, projektů a pracovních zkušeností v oblasti IT.
@@ -131,7 +131,7 @@ Komplexní systém pro správu filmů s různými rolemi uživatelů.
 
 ### 3. Simulátor Enigma
 Softwarová simulace historického šifrovacího stroje Enigma.
-- **Technologie:** C#, .NET Core, WinForms
+- **Technologie:** C#, .NET Framework, WinForms
 - **Funkce:** Věrná simulace rotorů a zapojení
 - [GitHub](https://github.com/0ndraM/Enigma-C-sharp)
 
@@ -148,7 +148,7 @@ Jsem student 2. ročníku **Aplikované informatiky na VŠPJ** s vášní pro te
 
 ### Kontakt
 - 📧 Email: [muhlhondra@gmail.com](mailto:muhlhondra@gmail.com)
-- 💼 LinkedIn: [linkedin.com/in/Ondram](https://www.linkedin.com/in/Ondram)
+- 💼 LinkedIn: [linkedin.com/in/0ndram](https://www.linkedin.com/in/0ndram)
 - 🐙 GitHub: [github.com/0ndraM](https://github.com/0ndraM)
 - 📷 Instagram: [@0ndra_m_](https://www.instagram.com/0ndra_m_/)
 
