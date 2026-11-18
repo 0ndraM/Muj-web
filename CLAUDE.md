@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Ondřej Műhlhandel's personal portfolio, a single static page in Czech, deployed at https://0ndra.maweb.eu/. There is no build step, package manager, linter or test suite. Everything (markup, CSS, JS) lives inline in `index.html`. Site copy and commit messages are written in Czech.
 
-`README.md` is outdated: it still describes the old Tailwind/Inter design. Don't treat it as a source of truth for the current stack.
+`README.md` (in Czech) repeats the project list, certifications and contact details from the page. Update it when those change on the site.
 
 ## Running locally
 
